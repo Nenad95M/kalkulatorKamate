@@ -9,20 +9,22 @@ document.getElementById('loan-form').addEventListener('submit', function(e){
 });
 
 function calculateResults(){
+    //pristupamo inputima forme
     const amount= document.getElementById('amount');
     const interest=document.getElementById('interest');
     const years=document.getElementById('years');
     const monthlyPayment=document.getElementById('monthly-payment');
     const totalInterest=document.getElementById('total-interest');
     const totalPayment=document.getElementById('total-payment');
-  
+
+    //racunamo
    const principal=parseFloat(amount.value);
    const calculateInterest=parseFloat(interest.value)/100/12;
    const calculatePayments=parseFloat(years.value)*12;
-//mesecna rata
+    //mesecna rata
    const x=Math.pow(1+calculateInterest,calculatePayments);
    const monthly=(principal*x*calculateInterest)/(x-1);
-
+    //proveravamo da li je u pitanju konacan broj, ako jeste idemo dalje
    if(isFinite(monthly)){
     monthlyPayment.value=monthly.toFixed(2);
     totalPayment.value=(monthly*calculatePayments).toFixed(2);
