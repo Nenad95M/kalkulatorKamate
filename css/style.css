@@ -1,0 +1,12 @@
+*{
+    box-sizing: border-box;
+}
+.results{
+    display: none;
+}
+.loading{
+    display: none;
+}
+.loading> img{
+width: 100%;
+}
